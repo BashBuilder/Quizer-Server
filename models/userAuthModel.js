@@ -23,7 +23,7 @@ userAuthSchema.statics.signup = async function (email, password, username) {
   if (!email || !password) throw Error("All fields must be filled");
   if (!validator.isEmail(email)) throw Error("Email is not valid");
   if (!validator.isStrongPassword(password))
-    throw Error("Password not strong enough");
+    throw Error("Password must contain upprecase and special character e.g !*");
   const exists =
     (await this.findOne({ email })) || (await this.findOne({ username }));
   if (exists) throw Error("User already exist");

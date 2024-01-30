@@ -16,7 +16,7 @@ mongoose
   .catch((error) => console.error(error.message));
 
 app.use("/api/quizer/user", userAuth);
-app.use("/api/quizer/user", userQuiz);
+app.use("/api/quizer/", userQuiz);
 
 app.get("/", (req, res) => {
   res.status(200).json({ home: "Welcome to the Quizer backend server!" });
