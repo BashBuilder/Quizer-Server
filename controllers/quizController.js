@@ -1,9 +1,8 @@
-const Quiz = require("../models/quizModel");
+const Results = require("../models/quizModel");
 const { quizCategories } = require("../data/data");
 
 module.exports.getQuiz = async (req, res) => {
   const { amount, category, difficulty, type } = req.body;
-  // MAKE A FETCH REQUEST TO API
   try {
     const url = `${process.env.QUESTION_API_ENDPOINT}amount=${amount}&difficulty=${difficulty}&category=${quizCategories[category]}&type=${type}`;
     const response = await fetch(url, {
@@ -17,4 +16,11 @@ module.exports.getQuiz = async (req, res) => {
   } catch (error) {
     console.error(error);
   }
+};
+
+module.exports.submitResults = async (req, res) => {
+  const quizResult = req.body;
+  const submitted = await Results.create(quizResult);
+  const { _id, category, score, totalQuestions } = submitted;
+  res.status(200).json({ _id, category, score, totalQuestions });
 };
