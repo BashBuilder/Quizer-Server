@@ -17,10 +17,21 @@ module.exports.getQuiz = async (req, res) => {
     console.error(error);
   }
 };
-
 module.exports.submitResults = async (req, res) => {
-  const quizResult = req.body;
-  const submitted = await Results.create(quizResult);
-  const { _id, category, score, totalQuestions } = submitted;
-  res.status(200).json({ _id, category, score, totalQuestions });
+  try {
+    await Results.create(req.body);
+    res.status(200);
+  } catch (error) {
+    res.status(401);
+  }
+};
+
+module.exports.getAllQuiz = async (req, res) => {
+  try {
+    const questions = await Results.find({});
+    console.log(questions);
+    res.status(200).json(questions);
+  } catch (error) {
+    console.error(error.message);
+  }
 };
