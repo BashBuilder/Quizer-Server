@@ -20,16 +20,14 @@ module.exports.getQuiz = async (req, res) => {
 module.exports.submitResults = async (req, res) => {
   try {
     await Results.create(req.body);
-    res.status(200);
+    res.status(200), json({ success: "Results created successfully" });
   } catch (error) {
     res.status(401);
   }
 };
-
 module.exports.getAllQuiz = async (req, res) => {
   try {
     const questions = await Results.find({});
-    console.log(questions);
     res.status(200).json(questions);
   } catch (error) {
     console.error(error.message);

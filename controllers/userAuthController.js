@@ -23,11 +23,11 @@ module.exports.signup = async (req, res) => {
 
 module.exports.login = async (req, res) => {
   const { email, password } = req.body;
-  console.log(email, password);
   try {
     const user = await User.login(email, password);
     const token = createToken(user._id);
-    res.status(200).json({ email, token });
+    const { username } = user;
+    res.status(200).json({ username, token });
   } catch (error) {
     res.status(400).json({ error: error.message });
   }
