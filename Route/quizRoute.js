@@ -7,6 +7,6 @@ const router = Router();
 router.use(requieAnth);
 router.post("/submitResults", quizController.submitResults);
 router.post("/getquiz", quizController.getQuiz);
-router.get("/getAllQuiz", quizController.getAllQuiz);
+router.post("/getAllQuiz", quizController.getAllQuiz);
 
 module.exports = router;
