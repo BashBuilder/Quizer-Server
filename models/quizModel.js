@@ -14,10 +14,6 @@ const resultSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    totalQuestions: {
-      type: Number,
-      required: true,
-    },
     questions: [
       {
         type: {
