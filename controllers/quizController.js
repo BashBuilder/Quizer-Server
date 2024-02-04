@@ -28,9 +28,8 @@ module.exports.submitResults = async (req, res) => {
 module.exports.getAllQuiz = async (req, res) => {
   try {
     const { username } = req.body;
-    console.log(username);
-    const questions = await Results.find({ username });
-    console.log(questions);
+    // const questions = await Results.find({ username });
+    const questions = await Results.find({ username }).sort({ createdAt: -1 });
     res.status(200).json(questions);
   } catch (error) {
     console.error(error.message);
