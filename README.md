@@ -18,31 +18,6 @@ This documentation provides an overview of the backend server for the Quizer app
 
 The backend server follows a modular structure:
 
-Certainly! Below is a basic template for a Markdown file (SERVER.md) that outlines the functionality of a Node.js backend server for a Quizer app. This assumes functionality like fetching questions, calculating scores, authentication, and saving data to a MongoDB database. You may need to add more details based on your specific implementation.
-
-markdown
-Copy code
-
-# Quizer Backend Server Documentation
-
-This documentation provides an overview of the backend server for the Quizer app. The server is built using Node.js, Express, and MongoDB.
-
-## Table of Contents
-
-- [Project Structure](#project-structure)
-- [Setup](#setup)
-- [Endpoints](#endpoints)
-- [Fetch Questions](#fetch-questions)
-- [User Authentication](#user-authentication)
-- [Calculate Scores](#calculate-scores)
-- [Save Results](#save-results)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Project Structure
-
-The backend server follows a modular structure:
-
 quizer-backend/
 |-- controllers/
 |-- models/
